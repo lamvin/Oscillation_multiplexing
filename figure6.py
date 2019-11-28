@@ -72,7 +72,7 @@ tau = C*R                   #Membrane time constant (seconds)
 N = 1000
 pNI = 0.2
 mean_delays = 0.001/dt
-mean_GE = 0.02
+mean_GE = 0.01
 mean_GI = 0.16
 fs = np.int(1/dt)
 tref = 2e-03/dt
@@ -80,7 +80,7 @@ p = 0.1
 ITonic = 9
 td = 0.06
 tr = 0.006
-G = 0.5
+G = 1
 
 #Input parameters
 N_in = 20
@@ -110,7 +110,7 @@ for i in range(N_place):
 #Initialize network
 net = network.net(N,pNI,mean_delays,tref,G=G,p=p, mean_GE = mean_GE, mean_GI = mean_GI, ITonic=ITonic,tau=tau)
 net.VRest[:N_place] = -60
-
+net.W[net.E_idx,net.E_idx] = 0
 
 #Input params
 sigma_inp = 0.1
