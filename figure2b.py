@@ -7,7 +7,7 @@ import network
 import warnings
 warnings.filterwarnings("ignore", category=RuntimeWarning) 
 
-np.random.seed(1)
+np.random.seed(10)
 
 def lowpass_filter(data, cutoff, fs):
     order = 3
@@ -177,7 +177,7 @@ net1 = data['nets'][0]
 N_Inets = net1.N
 
 #Augmented network parameters
-p_fb = 0.5          #Probability of connection from reservoir neuron to oscillatory network neurons
+p_fb = 0.1          #Probability of connection from reservoir neuron to oscillatory network neurons
 p_in = 0.5          #Probability of connection from oscillatory network neuron to reservoir neurons
 A = 2     #1 = 10 pA (before connection weights)
 gain_fb = 1
@@ -237,28 +237,28 @@ width = 15
 height = 8
 xaxis = dt*np.arange(nt)
 
-#pannel e, oscillatory networks raster
+#panel e, oscillatory networks raster
 total_N = nb_Inets*N_Inets
 plt.figure(figsize=(width,height))
 plt.title('Oscillatory networks raster')
 [plt.plot(np.where(spikes_Inets_inp1[x,:])[0]*dt,np.ones(len(np.where(spikes_Inets_inp1[x,:])[0]))*(total_N-x),linestyle='none',marker='.',color=np.array([3, 112, 6])/255,markersize=1,alpha=1,label='Input#1') for x in range(total_N)]
 [plt.plot(np.where(spikes_Inets_inp2[x,:])[0]*dt,np.ones(len(np.where(spikes_Inets_inp2[x,:])[0]))*(total_N-x),linestyle='none',marker='.',color=np.array([27, 214, 32])/255,markersize=1,alpha=1,label='Input#2') for x in range(total_N)]
-plt.savefig(output_path+'pannel_e-top.png')   
+plt.savefig(output_path+'panel_e-top.png')   
 
-#pannel e, reservoir raster
+#panel e, reservoir raster
 plt.figure(figsize=(width,height))
 plt.title('Testing.')
 [plt.plot(np.where(spikes_inp1[x,:])[0]*dt,np.ones(len(np.where(spikes_inp1[x,:])[0]))*(N-x),'r.',markersize=1,alpha=1) for x in range(net.NE)]
 [plt.plot(np.where(spikes_inp2[x,:])[0]*dt,np.ones(len(np.where(spikes_inp2[x,:])[0]))*(N-x),'b.',markersize=1,alpha=1) for x in range(net.NE,net.NE+net.NI)]
-plt.savefig(output_path+'pannel_e-middle.png')   
+plt.savefig(output_path+'panel_e-middle.png')   
 
 
-#pannel f, network output
+#panel f, network output
 plt.figure(figsize=(15,4))
 plt.plot(xaxis,target,'k--',linewidth=2)
 plt.plot(xaxis,output_inp2[0,:],color=np.array([27, 214, 32])/255,linewidth=3,alpha=0.9,label='Input#2')   
 plt.plot(xaxis,output_inp1[0,:],color=np.array([3, 112, 6])/255,linewidth=3,alpha=0.9,label='Input#1')    
 plt.legend()
-plt.savefig(output_path+'pannel_f.png')    
+plt.savefig(output_path+'panel_f.png')    
 
 

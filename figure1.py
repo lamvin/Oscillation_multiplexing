@@ -160,10 +160,10 @@ width = 15
 height = 8
 xaxis = np.linspace(0,T,nt)
 
-#Pannel c, first two plots from top
+#panel c, first two plots from top
 balance = np.mean((total_iEx[:t_stim]+total_iIn[:t_stim])/N)
 plt.figure(figsize=(width,height))
-plt.title('Fig 1, pannel c (first two)')
+plt.title('Fig 1, panel c (first two)')
 plt.subplot(2,1,1)
 plt.plot(xaxis,10*total_iIn[:]/N,'b',label='Inhibition')
 plt.plot(xaxis,10*total_iEx[:]/N,'r',label='Excitation')
@@ -182,10 +182,10 @@ plt.subplot(2,1,2)
 plt.tick_params(labelsize=17)
 plt.xlabel('Time (s)', fontsize=20)
 plt.ylabel('Neuron #', fontsize=20)
-plt.savefig(output_path+'pannel_c-top.png')
+plt.savefig(output_path+'panel_c-top.png')
            
            
-#Pannel c, bottom, instantaneous firing rate
+#panel c, bottom, instantaneous firing rate
 inst_fr = np.zeros(sparse_mat.shape)
 for i in range(N):
     events = np.where(sparse_mat[i,:])[0]
@@ -200,9 +200,9 @@ plt.xlabel('Time (s)', fontsize=20)
 plt.ylabel('Average firing rate\n (spks/s)', fontsize=20)
 plt.tick_params(labelsize=17)
 plt.title('Instantaneous firing rate')
-plt.savefig(output_path+'pannel_c-bottom.png')
+plt.savefig(output_path+'panel_c-bottom.png')
            
-#Pannel d, readout output
+#panel d, readout output
 plt_colors = [[255,171,171],
               [255,120,120],
         [255,0,0]]
@@ -217,10 +217,10 @@ plt.xlabel('Time (s)', fontsize=20)
 plt.ylabel('Output', fontsize=20)
 plt.tick_params(labelsize=17)
 plt.legend()
-plt.savefig(output_path+'pannel_d.png')
+plt.savefig(output_path+'panel_d.png')
 
 
-#Pannel e, output/target correlation
+#panel e, output/target correlation
 nb_tests = int(np.floor(nb_epochs/2))
 test_error = np.zeros(nb_tests)
 for i in range(1,nb_tests):
@@ -231,6 +231,6 @@ plt.xlabel('Epoch #', fontsize=30)
 plt.ylabel('Pearson r', fontsize=30)
 plt.tick_params(labelsize=27)
 plt.ylim([-0.3,1])
-plt.savefig(output_path+'pannel_e.png')
+plt.savefig(output_path+'panel_e.png')
 
 

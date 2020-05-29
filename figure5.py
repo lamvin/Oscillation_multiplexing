@@ -336,7 +336,7 @@ plt.tick_params(labelsize=17)
 plt.ylabel('Pearson r', fontsize=20)
 plt.xlabel('Rescaling factor', fontsize=20)
 plt.title('Output/target correlation')
-plt.savefig(output_path+'pannel_d.png')
+plt.savefig(output_path+'panel_d.png')
 
 #Panel c
 plt.figure(figsize=(13,5))
@@ -365,4 +365,4 @@ for rs_i in range(8):
     #plt.xlabel('Time (s)',fontsize=25)
     plt.tick_params(labelsize=10)
     plt.title('{} X'.format(rs_factor),fontsize=10)
-plt.savefig(output_path+'pannel_c.png')
+plt.savefig(output_path+'panel_c.png')

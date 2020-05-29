@@ -339,7 +339,7 @@ for ep_i in range(3):
     if ep_i == 0:
         plt.ylabel('Neuron #', fontsize=15)
     plt.ylim([0,N_place])
-plt.savefig(output_path+'pannel_g.png')
+plt.savefig(output_path+'panel_g.png')
     
 # =============================================================================
 # plot replay
@@ -370,4 +370,4 @@ for ep_i in range(2):
     plt.ylabel('Neuron #', fontsize=20)
     plt.xlim([0,T_rs])
     plt.xticks(xticks,xticks_lab)
-plt.savefig(output_path+'pannel_h.png')
+plt.savefig(output_path+'panel_h.png')

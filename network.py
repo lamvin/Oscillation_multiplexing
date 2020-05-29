@@ -21,7 +21,7 @@ class net(object):
         mean_Theta = -50	 		#spike threshold (mV) 
         mean_TauFall_E = 0.02	    #EPSP fall for excitatory cells (ms) 
         mean_TauFall_I = mean_TauFall_I #EPSP fall for inhibitory cells (ms)		
-        GaussSD = 0.02			    # Gaussian parameter (sigma)
+        GaussSD = GaussSD			    # Gaussian parameter (sigma)
         GaussTheta = 0.01
         
         

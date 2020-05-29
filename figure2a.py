@@ -129,7 +129,7 @@ width = 15
 height = 8
 xaxis = np.linspace(0,T,nt)
 
-#pannel a, top
+#panel a, top
 plt_colors = ['451EA0','683372']
 #plt_colors = [tuple(np.array(x)/255) for x in plt_colors]
 plt_colors = [tuple(np.array(tuple(int(x[i:i+2], 16) for i in (0, 2 ,4)))/255) for x in plt_colors]
@@ -144,9 +144,9 @@ plt.xlim([0,2.5])
 plt.xlabel('Time (s)',fontsize=20)
 plt.tick_params(labelsize=17)
 plt.yticks([], [])
-plt.savefig(output_path+'pannel_a-top.png')
+plt.savefig(output_path+'panel_a-top.png')
 
-#pannel a, bottom (last network only)
+#panel a, bottom (last network only)
 fig = plt.figure(figsize=(width,height))
 plt.plot(xaxis,np.mean(total_iEx[:,:]/N,axis=0),color='r',label='Exc') 
 y = np.mean(total_iEx[:,:]/N,axis=0)
@@ -160,5 +160,5 @@ plt.twinx()
 plt.plot(xaxis,input_network,color='g',label='Inp')
 plt.ylabel('Step current', fontsize=20)
 plt.tick_params(labelsize=17)
-plt.savefig(output_path+'pannel_a-bottom.png')
+plt.savefig(output_path+'panel_a-bottom.png')
 
