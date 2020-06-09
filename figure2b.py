@@ -45,7 +45,8 @@ def launch_net(net,Inets,nt,train,w_in,inh_pulse,w_fb,input_Inets,w_inj,target,B
         W_Inets[(i_Inet*N_Inets):((i_Inet+1)*N_Inets),(i_Inet*N_Inets):((i_Inet+1)*N_Inets)] = Inets[i_Inet].W
     
     for i in range(nb_epochs):
-        print('Epoch {}/{}.'.format(i+1,nb_epochs))
+        if train:
+            print('Epoch {}/{}.'.format(i+1,nb_epochs))
         r = np.zeros(net.NE)
         hr = np.zeros(net.NE)         
         spikes = np.zeros((net.N,nt))    #Spike times   
@@ -219,6 +220,7 @@ for i_Inet in range(nb_Inets):
     w_inj[(i_Inet*N_Inets):((i_Inet+1)*N_Inets),i_Inet] = Inets[i_Inet].w_res.ravel()
 
 #Training
+print('Training.')
 BPhi = np.zeros(NE)
 Pinv = np.eye(NE)*alpha
 train = True         
@@ -226,6 +228,7 @@ BPhi_trained,spikes_train,spikes_Inets_train,output_train = launch_net(net,Inets
               w_fb,input_Inets,w_inj,target,BPhi,Pinv,nb_epochs,tr,td,step)
 
 #Testing
+print('Testing.')
 train = False       
 BPhi,spikes_inp1,spikes_Inets_inp1,output_inp1 = launch_net(net,Inets,nt,train,w_in,inh_pulse1,
               w_fb,input_Inets,w_inj,target,BPhi_trained,Pinv,1,tr,td,step)     #Test with input 1

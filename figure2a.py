@@ -49,6 +49,7 @@ p_in = 1            #Porbability of connection from input unit (step function) t
 data = {}   #Output dictionary used by figure2b.py
 data['nets'] = []
 cutoff = 0.95       #Cut-off correlation between the activity on each trial to consider a network as stable
+print('Starting simulation.')
 for net_i in range(nb_networks):
     input_network = np.zeros(nt)
     N_in = 1

@@ -14,7 +14,9 @@ from scipy import stats
 import os
 from scipy.signal import iirfilter, lfilter
 import scipy.ndimage.filters as filters
-
+import warnings
+warnings.filterwarnings("ignore")
+np.random.seed(1)
 
 def ensure_dir(f):
     d = os.path.dirname(f)
@@ -75,12 +77,9 @@ A = 3
 
 
 
-#mean_GE = 0.005
-#mean_GI = mean_GE*8#0.04#3              #0.055 Conductance (0.001 = 1pS)1.5
+
 fs = np.int(1/dt)
 ITonic = 9
-#td = 0.04#0.02#0.05 #
-#tr = 0.004#0.002#0.01 #
 G = 1
 gNoise = 0
 nb_epochs = 15
@@ -145,7 +144,7 @@ delta_per_epoch = int(np.floor(nt/step))
 total_iEx = np.zeros(nt)
 total_iIn = np.zeros(nt)
 total_iInp = np.zeros(nt)
-
+print('Training.')
 for ep_i in range(nb_epochs):
     #Simulation variables
     print('Epoch {}/{}.'.format(ep_i+1,nb_epochs))
